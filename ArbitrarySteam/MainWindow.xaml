@@ -1,0 +1,76 @@
+﻿<Window x:Class="ArbitrarySteam.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Arbitrary Steam"  Width="825" Height="535" Visibility="Visible" >
+    <Grid Name="main">
+
+        <Grid.Background>
+            <ImageBrush ImageSource="resources/images/logon_background.png"/>
+        </Grid.Background>
+
+        <Grid Name="Overlay" Panel.ZIndex="1000" Visibility="Visible">
+            <Button x:Name="buttonSettings"  HorizontalAlignment="Right"  VerticalAlignment="Top" Width="38" Height="38" Background="Transparent" BorderThickness="0" Margin="0,10,10,0" Click="ButtonSettings_Click" Focusable="False" BorderBrush="{x:Null}">
+                <StackPanel>
+                    <Image Source="resources/images/settings_gear_32x32.png" Width="32" Height="32" ToolTip="Settings"/>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="buttonBack" HorizontalAlignment="Left"  VerticalAlignment="Top"  Width="38" Height="38" Background="Transparent" BorderThickness="0" Margin="10,10,0,0" Click="ButtonBack_Click" BorderBrush="{x:Null}">
+                <StackPanel>
+                    <Image Source="resources/images/back_arrow_32x32.png" Width="32" Height="32" ToolTip="Back"/>
+                </StackPanel>
+            </Button>
+
+            <TextBlock x:Name="tbErrorOrInfo"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,21,0,0" Foreground="White" Visibility="Collapsed"/>
+
+
+        </Grid>
+        <!--End of Overlay -->
+
+        <Grid Name="logon" Visibility="Visible">
+
+            <TextBlock  Margin="0,-225,0,0" FontSize="36"  Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Text="Arbitrary Steam" FontFamily="Segoe UI Light" Height="60" Width="262" />
+
+            <RadioButton x:Name="radioCustomURL" Content="Custom URL"  HorizontalAlignment="Center" Margin="-100,-120,0,0" VerticalAlignment="Center" Foreground="White" IsChecked="True" Padding="1,-1,0,0" Width="90" Height="18" Click="RadioCustomURL_Click"  />
+            <RadioButton x:Name="radioSteamID" Content="Steam ID" HorizontalAlignment="Center" Margin="100,-120,0,0" VerticalAlignment="Center" Foreground="White" Padding="0,-1,0,0" Width="70" Height="18" Click="RadioSteamID_Click" />
+
+            <Button x:Name="buttonContinue" Width="38" Height="38"   HorizontalAlignment="Center" VerticalAlignment="Center" Margin="320,-50,0,0" Background="Transparent" ToolTip="Continue" BorderBrush="{x:Null}" Click="ButtonContinue_Click">
+                <StackPanel>
+                    <Image Source="resources/images/forward_arrow_32x32.png" Width="32" Height="32"/>
+                </StackPanel>
+            </Button>
+
+            <TextBox x:Name="tbLink" TextWrapping="NoWrap"  Text="steamcommunity.com/id/"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-50,0,0" Width="262" TextChanged="TextBoxLink_TextChanged"  Padding="0,3"/>
+
+
+        </Grid>
+        <!--End of logon -->
+
+        <Grid Name="gameSelector" Visibility="Collapsed">
+            <!--
+            <Grid.Background>
+                <ImageBrush ImageSource="http://cdn.akamai.steamstatic.com/steam/apps/377160/page_bg_generated_v6b.jpg"/>
+            </Grid.Background>-->
+            
+            <TextBlock x:Name="tbGameName"  Margin="0,-225,0,0" FontSize="36"  Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontFamily="Segoe UI Light" />
+            <Image x:Name="gameImage" HorizontalAlignment="Center" VerticalAlignment="Center" Width="292" Height="136" MouseDown="GameImage_MouseDown" Cursor="Hand"/>
+            <Label x:Name="labelGameTime" Foreground="White" HorizontalAlignment="Center"  VerticalAlignment="Center" Margin="0,200,0,0" />
+            <Button x:Name="buttonLaunchOrDownload" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="150,350,0,0" Width="76" Height="76" Background="Transparent" BorderBrush="{x:Null}" Click="ButtonLaunchOrDownload_Click" >
+                <StackPanel>
+                    <Image Source="resources/images/launch_64x64.png" Width="64" Height="64"/>
+                </StackPanel> 
+            </Button>
+
+            <Button x:Name="buttonNewRandomGame" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-150,350,0,0" Width="76" Height="76" Background="Transparent" BorderBrush="{x:Null}" Click="ButtonNewRandomGame_Click">
+                <StackPanel>
+                    <Image Source="resources/images/6_sided_die_64x64.png" Width="64" Height="64"/>
+                </StackPanel>
+            </Button>
+            
+            <Label x:Name="labelUserName" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,10,0,0" Foreground="White" />
+        </Grid>
+        <!--End of gameSelector -->
+
+    </Grid>
+    <!--End of main -->
+</Window>
